@@ -1,0 +1,24 @@
+{
+	"title": "WHSuite Documentation",
+	"tagline": "Learn how to use the best billing platform around.",
+	"image": "<base_url>img/app.png",
+	"theme": "whsuite-user",
+	"template": "default",
+	"toggle_code": false,
+	"breadcrumbs": false,
+	"breadcrumb_separator": false,
+	"date_modified": false,
+    "file_editor": false,
+    "float": false,
+	"repo": false,
+	"ignore": {
+	        "files": ["README.md", "LICENSE"],
+	        "folders": ["99_Not_Ready"]
+    },
+	"twitter": [],
+	"google_analytics": "UA-39783825-4",
+	"links": {
+		"WHSuite.com": "http://whsuite.com",
+		"Support Forums": "http://forums.whsuite.com"
+	}
+}
