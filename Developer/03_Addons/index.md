@@ -1,0 +1,2 @@
+In order to create the best addons, please make sure you have read the documentation on the Core framework and the Application before diving into Addon development.   
+Doing so will make sure you are aware of all the tools and tricks built in (and any that may be missing!) before building your addon allowing you to create the best addon possible!

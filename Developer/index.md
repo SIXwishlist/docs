@@ -9,7 +9,9 @@ The framework also supports addons which themselves are structured around MVC.
 
 The main core of the framework is the App class which contains the system registry. Any object that may be required more then once during a process may be added to the registry with a key. This object can then be retrieved again and again without having to reinstantiate the object.
 
-The App Class is also responsible for handling the "registering" off addons and loading that addons configs and / or hooks.
+The App Class is also responsible for handling the "registering" of addons and loading that addons configs and / or hooks.
+
+For full documentation on the built in framework functionality view the core section of the documentation.
 
 ### Composer Packages
 

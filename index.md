@@ -2,7 +2,7 @@ The WHSuite Documentation site is split into two sections; User Documentation an
 
 <div class="row">
 	<div class="col-md-6 text-center"><h2><a href="./User/Getting_Started/">End-User Docs</a></h2></div>
-	<div class="col-md-6 text-center"><h2><a href="./Developer/Getting_Started">Developer Docs</a></h2></div>
+	<div class="col-md-6 text-center"><h2><a href="./Developer/">Developer Docs</a></h2></div>
 </div>
 
 
