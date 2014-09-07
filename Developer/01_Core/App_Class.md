@@ -77,3 +77,34 @@ b) affect the object without having to re-add to the registry.
 	echo \App::get('myclass')->getFoo(); // will return 'foo-bar'
 
 ### Checking the Registry
+
+The App class also provides the ability to check whether an item exists in the registry and also provides the ability to check which addons are currently installed.
+
+The check returns a simple true / false boolean value as to whether or not the item exists within the registry with the given key.
+
+    /**
+     * check to see if an object exists in the registry
+     *
+     * @static
+     * @param string - key to find and retrieve
+     * @return bool
+     */
+    public static function check($key)
+    
+Using the **myclass** example above you can check to see if it is in the registry like so:
+	
+	$exists = \App::check('myclass');
+	
+To check the App registry for installed addons use the following function
+
+    /**
+     * check whether addon is installed
+     *
+     * @param   string  addon name
+     * @return  bool    whether addon is installed
+     */
+    public static function checkInstalledAddon($addon_name)
+    
+The function also returns a true / false value whether it was loaded during start up.
+
+	$exists = \App::checkInstalledAddon('support_desk');
