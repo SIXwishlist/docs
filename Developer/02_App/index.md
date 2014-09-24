@@ -1,0 +1,3 @@
+Application Index.
+
+To be used to mention app controllers / base controllers. App models, theme setup, bootstraps, scaffolding etc...
