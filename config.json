@@ -12,8 +12,8 @@
     "float": false,
 	"repo": false,
 	"ignore": {
-	        "files": ["README.md", "LICENSE"],
-	        "folders": ["99_Not_Ready"]
+	        "files": ["README.md", "LICENSE", ".gitignore"],
+	        "folders": ["99_Not_Ready", ".git"]
     },
 	"twitter": [],
 	"google_analytics": "UA-39783825-4",
