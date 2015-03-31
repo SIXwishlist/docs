@@ -17,27 +17,28 @@ For full documentation on the built in framework functionality view the core sec
 
 The main 3rd party libraries we use are listed below, each 3rd party library may require other libraries / packages for it's own internal use, these are not documented here.
 
-* Aura Router (1.X branch <https://github.com/auraphp/Aura.Router/tree/develop>)
-* Aura Session (1.X branch <https://github.com/auraphp/Aura.Session/tree/develop>)
-* Aura HTTP (1.X branch <https://github.com/auraphp/Aura.Http>)
-* Illuminate Eloquent (4.1.X branch <https://github.com/illuminate/database>)
-* Symfony Filesystem (2.3.X branch <https://github.com/symfony/Filesystem>)
-* Symfony Finder (2.3.X branch <https://github.com/symfony/Finder>)
-* Cartalyst Sentry (2.X branch <https://github.com/cartalyst/sentry>)
-* Omnipay (2.X branch <https://github.com/omnipay/omnipay>)
+* Aura Router ([1.X branch](https://github.com/auraphp/Aura.Router/tree/develop))
+* Aura Session ([1.X branch](https://github.com/auraphp/Aura.Session/tree/develop))
+* Aura HTTP ([1.X branch](https://github.com/auraphp/Aura.Http))
+* Illuminate Eloquent ([4.1.X branch](https://github.com/illuminate/database))
+* Symfony Filesystem ([2.3.X branch](https://github.com/symfony/Filesystem)
+* Symfony Finder ([2.3.X branch](https://github.com/symfony/Finder))
+* Symfony Translation ([2.4.X branch](https://github.com/symfony/Translation))
+* Cartalyst Sentry ([2.X branch](https://github.com/cartalyst/sentry))
+* Omnipay ([2.X branch](https://github.com/omnipay/omnipay))
 
 Some of these packages are used inside a custom "wrapper" class in order extend default functionality allowing us to maximise the use for these packages.  
 This list is correct as of Version 1.0.0 Stable, this list may be subject to change during continued development.
 
-Some sections / packages could not be extend exactly how we needed / wanted so we use custom built packages for these. Each of these will be fully documented over time.
+The following is a list of some of the main custom packages WHSuite uses.
 
-* Input - Static class used for handling GET / POST data. Has built in CSRF checks when used in conjunction with the Forms package.
-* Forms - Form building functions for use within templates to generate forms. Can use the Input class to automatically populate the fields.
-* Utilities - Collection of useful classes 
-	* Breadcrumb Trail Builder
-	* Email (Wrapper for Swift Mailer)
-	* Money - Currency conversions
-	* Settings - Loading settings from database
-* Translations - Language translations
-* Custom Fields - Allows custom fields on any section
-* Migrations - Database migrations
+* **Input** - Static class used for handling GET / POST data. Has built in CSRF checks when used in conjunction with the Forms package.
+* **Forms** - Form building functions for use within templates to generate forms. Can use the Input class to automatically populate the fields.
+* **Utilities** - Static class with useful methods
+* **Breadcrumb** - Breadcrumb trail builder
+* **Email** - Wrapping class for Swift Mailer
+* **Money** - Currency conversions
+* **Settings** - Loading settings from database
+* **Translations** - Language translations
+* **Custom Fields** - Allows custom fields on any section
+* **Migrations** - Database migrations
