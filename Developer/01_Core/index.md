@@ -1,1 +1,1 @@
-Core documentation here
+Use the links to the left to browse the documentation for WHSuite core.
