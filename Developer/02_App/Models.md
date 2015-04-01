@@ -84,6 +84,94 @@ The name convention we use for the relationship methods is simple, the method na
 	
 ## Paginate
 
-The paginate method is a static method located within AppModel which provides each Model the ability to produce a paginated list. Given the conditions and sort orders and a few other misc settings (some of which can be inferred by the method by following correct naming conventions), the method will retrieve the required rows given the page number and also produce and assign to the template all the required info for the page numbers to be generated.
+The paginate method is a static method located within AppModel which provides each Model the ability to produce a paginated list. 
 
+Given the page number and any required conditions the method will retrieve the required rows and also produce and assign to the template all the required info for the page numbers to be generated.
+
+    /**
+     * create a paginated array of data
+     *
+     * @param   int         Number of items per page
+     * @param   int         Page number
+     * @param   array       Conditions to search on
+     * @param   string|bool Field to sort on
+     * @param   string      Sort direction
+     * @param   string      Route name to use for paging links
+     * @param   array       array of data to be passed to route generator
+     * @return  array       array of results
+     */
+    public static function paginate(
+    	$per_page, 
+    	$page, 
+    	$conditions = array(), 
+    	$sort_by = false, 
+    	$sort_order = 'desc', 
+    	$route = null, 
+    	$params = array()
+    )
+    
+### Conditions
+
+The conditions array doesn't map directly to Eloquent style where conditions. Instead a more basic but slightly more verbose array format is used.
+
+Currently on 3 types of "where" statement are supported, `where`, `orWhere` and `whereIn`, omitting the `type` element will default to `where`.
+
+    array(
+        array(
+            'column' => 'my_col',
+            'operator' => '=',
+            'value' => 'foobar'
+        ),
+        array(
+            'type' => 'or',
+            'column' => 'my_col2',
+            'operator' => '>',
+            'value' => 10
+        ),
+        array(
+            'type' => 'in',
+            'column' => 'my_col3',
+            'value' => array(
+                1, 3, 6, 33, 45, 56, 99
+            )
+        )
+    )
+
+### Route
+
+If no route is passed then paginate will assume it's an Admin based page and try to use the following route name.
+
+`admin-lowercasemodelname-paging`
+
+For sections that have paging, two routes are generally created, one for no paging (i.e. page 1) and also for all routes that have an actual page number.
+
+    'taxlevel' => array(
+        'path' => '/tax-levels/',
+        'values' => array(
+            'controller' => 'TaxLevelsController',
+            'action' => 'index'
+        )
+    ),
+    'taxlevel-paging' => array(
+        'params' => array(
+            'page' => '(\d+)'
+        ),
+        'path' => '/tax-levels/{:page}/',
+        'values' => array(
+            'controller' => 'TaxLevelsController',
+            'action' => 'index'
+        )
+    ),
+    
+n.b. The above routes would be prefixed with 'admin-' as described in the [Application Routes](/Developer/App/Routes) documentation.
+    
+#### Examples
+
+Some example model names and the route name that would be used.
+
+Model Name | Route Name
+---------- | ----------
+Staff | admin-staff-paging
+TaxLevel | admin-taxlevel-paging
+EmailTemplate | admin-emailtemplate-paging
 
