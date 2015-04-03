@@ -8,7 +8,7 @@ As a result we have the `loadRoutes()` method which during bootstrap finds and i
 
 ## Attaching Routes
 
-We have also overridden the `attach()` method. This is done to simple prepend the custom PHP constant `URL_PREFIX`. This contains either a forward slash (/) if WHSuite is installed in the root of your domain or a forward slash followed by the sub-directory WHSuite is stored in.
+We have also overridden the `attach()` method. This is done to simply prepend the custom PHP constant `URL_PREFIX`. This contains either a forward slash (/) if WHSuite is installed in the root of your domain or a forward slash followed by the sub-directory WHSuite is stored in.
 
 eg.
 

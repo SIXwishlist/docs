@@ -37,72 +37,10 @@ Each addon should therefore have a unique namespace prefix.
 
 After each prefix (whether it's core, app or addon) each sub-namespace will need to be either the class filename camel cased (as above addon examples) or a sub directory (again camel cased)leading to the class filename.
 
-### loadClass Method
+#### Examples
 
-    /**
-     * load the class
-     *
-     * @param string $class_name The name of the class to load.
-     * @return void
-     */
-    public function loadClass($class_name)
-    {
-        // check to see if it's the model array
-        if (isset($this->models[$class_name])) {
-
-            require_once($this->models[$class_name]);
-        } else {
-
-            // check what namespace we are dealing with
-            // core?
-            if (substr($class_name, 0, 5) == 'Core\\') {
-
-                $class_name = substr($class_name, 5);
-                $path = $this->paths['core'];
-
-            } elseif (substr($class_name, 0, 4) == 'App\\') {
-                // app?
-
-                $class_name = substr($class_name, 4);
-                $path = $this->paths['app'];
-
-            } elseif (substr($class_name, 0, 6) == 'Addon\\') {
-                // a addon?
-
-                $class_name = substr($class_name, 6);
-                $path = $this->paths['addon'];
-
-            } elseif (strpos($class_name, 'Controller') !== false) {
-                // base controller?
-
-                $path = $this->paths['app'] . DS . 'controllers' . DS . 'base';
-            }
-
-            if (! isset($path)) {
-                return false;
-            }
-
-            // convert rest to folder paths
-            $class_name = str_replace('\\', DS, $class_name);
-
-            // pop off the actual class so we can convert underscores to DS
-            $class_bits = explode(DS, $class_name);
-            $class_bits = array_map('Illuminate\Support\Str::snake', $class_bits);
-
-            $class = array_pop($class_bits);
-
-            if (! empty($class_bits)) {
-                $class_bits = implode(DS, $class_bits) . DS;
-            } else {
-                $class_bits = '';
-            }
-
-            // rebuild and check it exists
-            $class_to_load = strtolower($path . DS . $class_bits . $class . '.php');
-
-            if (file_exists($class_to_load)) {
-
-                require_once($class_to_load);
-            }
-        }
-    }
+Namespaced Class | File Location
+---------------- | -------------
+\App\Libraries\ClientAuth | doc\_root/whsuite/app/libraries/client\_auth.php
+\Core\Exceptions\PageNotFoundException | doc\_root/whsuite/system/exceptions/page_not_found_exception.php
+\Addon\SupportDesk\Libraries\NotificationsHelper | doc\_root/whsuite/app/addons/support\_desk/libraries/notifications\_helper.php
