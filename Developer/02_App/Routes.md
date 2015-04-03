@@ -1,5 +1,3 @@
-## Introduction
-
 For loading Routes within the system we have developed a method as part of our [Config Handler](/Developer/Core/Configs) to loop over the given directory and include all the files it finds automatically. These files contain all the routes for the system, this method allows us to group certain routes together and generally make maintaining all the routes within the system (and addons) easier.
 
 ## How it works
@@ -16,7 +14,6 @@ As part of the method call, a parameter must be passed, this is generally either
 The method will then look for another subdirectory named after the passed parameter. If it exists, the method will loop the folder and include any file it finds. Any file that contains routes should define a `$routes` variable with an array of the routes.
 
     $routes = array(
-
         'announcement' => array(
             'path' => '/announcements/',
             'values' => array(
@@ -34,7 +31,7 @@ The method will then look for another subdirectory named after the passed parame
         ...
     );
     
-The method will then attach those routes to an array which is returned, allowing us to pass the full array of routes to Aura Router.
+The method will then attach and return all the routes it finds as an array, allowing us to pass the full array of routes to Aura Router.
 
     $admin_routes = App::get('configs')->getRoutes('admin');
 
