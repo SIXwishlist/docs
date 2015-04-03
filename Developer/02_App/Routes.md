@@ -57,14 +57,21 @@ As stated, main WHSuite routes are split between admin / client. These routes al
 
 So with the above examples, the Announcement routes are from `app/configs/routes/admin/announcements.php` and as a result are part of the admin routes. This means to generate the route url for this route, the name for each route is called with the `admin-` prefix.
 
-	announcement -> admin-announcement
-	announcement-paging -> admin-announcement-paging
+Route Name | Full Route Name
+---------- | ---------------
+announcement | admin-announcement
+announcement-paging | admin-announcement-paging
+
 
 For the client side announcement routes found within `app/configs/routes/client/announcements.php` the prefix would be `client-`
 
-	announcement -> client-announcement
-	announcement-paging -> client-announcement-paging
-	
+
+Route Name | Full Route Name
+---------- | ---------------
+announcement | client-announcement
+announcement-paging | client-announcement-paging
+
+
 Ths functionality is part of Aura Router and not custom to WHSuite.
 
 ## Known Quirks / Future Amendments
