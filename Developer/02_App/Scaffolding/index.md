@@ -1,0 +1,1 @@
+Built into WHSuite `AppController` is scaffolding ability, this allows you to construct a whole CRUD admin section for a module by only defining a few methods.
