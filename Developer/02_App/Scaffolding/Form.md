@@ -7,6 +7,8 @@ There are 6 methods that can be used for generating the add / edit scaffolding p
 * getExtraData
 * afterSave
 
+There is also a static variable which can be defined on the controller should you wish to override the form scaffolding method and return the save result rather then redirect after saving.
+
 ## formToolbar
 
 This method is used to define what items to show on the toolbar above the main form. This is exactly the same as the [indexToolbar](/Developer/App/Scaffolding/Listing) method. For most CRUD instances the toolbar doesn't have to change between listing / form so as default, `formToolbar` simply calls back to `indexToolbar`.
@@ -161,3 +163,68 @@ Below is an example of it in use within the knowledge base articles admin area f
             )
         );
     }
+    
+The `$model` variable passed as a parameter is a copy of the main model which can be used to retrieve the extra data if you need to filter on any of the data the main model contains.
+
+## afterSave
+
+This method is a controller method that is called after the main model has saved successfully. The method accepts one parameter which is the main model that has just been saved with this variable being passed by reference.
+
+    /**
+     * afterSave callback
+     *
+     * Called once the save was successful
+     *
+     * @param object $main_model - the main model we are saving (passed by reference so we can affect it!)
+     */
+    protected function afterSave(&$main_model) { }
+    
+This can be used to do any processing needed after the main model has saved, from saving things such as related data or uploading files.
+
+Below is an example of the `afterSave` callback being used by the support desks admin support ticket controller. In this instance it's used to attach the post to the actual ticket that has just been created and to then upload any files that were attached during the posting.
+
+    protected function afterSave(&$main_model)
+    {
+        parent::afterSave($main_model);
+
+        $SupportPost = new SupportPost;
+        $SupportPost->body = PostInput::get('data.SupportTicket.SupportPost.body');
+        $SupportPost->staff_id = $this->admin_user->id;
+
+        $SupportPost = $main_model->SupportPost()->save($SupportPost);
+
+        if (\App::checkInstalledAddon('uploader')) {
+
+            // process any uploads
+            \Addon\Uploader\Libraries\Process::uploads('SupportPost', $SupportPost);
+        }
+
+        // ticket notification
+        \Addon\SupportDesk\Libraries\Notifications::clientNewReply($main_model->id);
+    }
+    
+## return\_on\_success
+
+On a controller, the static variable `self::$return_on_success` can be defined. This can be used if you wish to override the method and perform a different redirect to the one the scaffolding provides.
+
+An example of it in use can be found in the client side support ticket controller as part of the support desk. In standard operation the scaffolding would redirect back the normal listing. Within the support desk however we wanted to be able redirect to a different location if the user is a guest user and the post was successful.
+
+The following code is a condensed example from the support ticket controller mentioned above.
+
+    public function form($id = null)
+    {
+        // if we've posted, setup guest account
+    	
+    	 // define the $return_on_success var to true
+    	 // and called parent form to activate the scaffolding
+        self::$return_on_success = true;
+        $return = parent::form($id);
+
+        if ($return) {
+            // the post was successful
+            // check if it was a guest user or not
+            // and redirect to the appropriate place.
+        }
+    }
+    
+

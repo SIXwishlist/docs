@@ -62,7 +62,7 @@ This is the main method used to define which fields should be shown in the listi
             array(
                 'field' => 'StaffGroup.name',
                 'label' => 'Groups',
-                'seperator' => ' / '
+                'separator' => ' / '
             ),
             array(
                 'field' => 'activated',
@@ -92,7 +92,7 @@ Advanced `field` features included being able to define it as an array and actua
 
 Another advanced feature for the `field` option is the ability to define in dot notation related models and a field from that model. As long as the [convention of naming the relationship methods](/Developer/App/Models) on a model then simply chain the model names until you get the one that has the field you require. The example above simply shows how to retrieve `StaffGroup` names that the staff member belongs to. The scaffolding is clever also in that it can handle multiple return results, like the example above we could return as many groups as they Staff Member is part of.
 
-By defining `seperator` you can customise how fields are joined together. If not defined, `seperator` will default to a single space.
+By defining `separator` you can customise how fields are joined together. If not defined, `separator` will default to a single space.
 
 If no `label` column is defined then WHSuite will take the field name and use that as the language slug to try and find a translation. If a label is defined then it will still **Set `label` to null if you don't want to display a label at all.**
 
