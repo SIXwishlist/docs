@@ -77,9 +77,9 @@ Below is an example of the details file from the Support Desk addon.
         );
     }
 
-The `name`, `description` and `version` attributes are currently used on the addon management listing page. 
+The `name`, `description` and `version` attributes are currently used on the addon management listing page.
 
-**NOTE:** The version number from here is also stored upon installing an addon, the stored version is then compared against the version within this file so WHSuite knows when to display an 'Update' button for the user run any update migrations. For best results use a [SemVer](http://semver.org] approach to your version numbering.
+**NOTE:** The version number from here is also stored upon installing an addon, the stored version is then compared against the version within this file so WHSuite knows when to display an 'Update' button for the user run any update migrations. For best results use a [SemVer](http://semver.org) approach to your version numbering.
 
 The `author`, `website` and `license` fields are currently not in use yet but will be used when a WHSuite addon market place is introduced.
 
@@ -89,15 +89,15 @@ The final `type` element is used to define the type of addon it is, some options
 
 The types available are:
 
-* module
+* **module**
 	* These are fully fledge addons that provide a full extra section to the website such as a Support Desk, Knowledge Base, Content Management System.
-* plugin
+* **plugin**
 	* These are tiny addons that will usually use callbacks on the models or provide code to be called within controller actions to hook into existing work flow. The uploader addon is an example of this.
-* server
+* **server**
 	* These are server addons that help provide the account setup when someone purchases a hosting product. Cpanel, Directadmin, Plesk are examples of these.
-* registrar
+* **registrar**
 	* These are the domain addons that provide the domain registration when a domain is purchases through WHSuite, examples of these are enom and logicboxes.
-* gateway
+* **gateway**
 	* These are all the payment gateways that are available for use by the customer. Examples of these include Authorizenet, Paypal and Stripe.
 	* These addons require another element to be defined of `gateway_type`
 
@@ -109,7 +109,7 @@ There are currently two supported gateway types.
 
 Merchant gateways require more setup within the initial migration of the addon (we hope to add more functionality to make this easier in the future) to define what it can handle.
 
-Merchange gateways usually handle more complex ACH and CC payments. They can also provide the ability to store the CC or ACH details so we don't have to ask the customer each time. These are generally used for recurring monthly billing payments.
+Merchant gateways usually handle more complex ACH and CC payments. They can also provide the ability to store the CC or ACH details so we don't have to ask the customer each time. These are generally used for recurring monthly billing payments.
 
 Details on what needs to be added to enable the ACH / CC storage will be mentioned within the Migrations and the Gateway documentation.
 
@@ -118,9 +118,3 @@ Details on what needs to be added to enable the ACH / CC storage will be mention
 Standard gateways are ones such as Paypal / Stripe / OfflinePayment. These ones provide the simple standard transaction integration and are usually used for one off type payments. Most of the work is handled by the gateways system and our addon simply tells the gateway "who we are" and how much to charge.
 
 These gateways will then send some kind of notification back to tell us when payment has complicated.
-
-
-
-
-
-
