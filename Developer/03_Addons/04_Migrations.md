@@ -82,11 +82,65 @@ Below is a full template example for a migration
 
 As mentioned above, the BaseMigration file provides some common used helper methods and attributes. These are mainly convience wrappers around [Laravels Schema Builder](URL).
 
+
+### Altering the Schema
+
+The following methods are essentially convience wrappers around Laravels built in methods for managing the Schema. Our wrapper method essentially makes it easier to access (due to WHSuite not using Laravel in full, only the Eloquent ORM system) and also automatically prepends the set database prefix onto the given table name.
+
+
 ### createTable()
+
+The createTable method is essentially a wrapper around `Schema::create()`, but simply prepending the database prefix as mentioned above.
+
+The method declaration is exactly the same so you can simply use our method exactly as the [Laravel Documentation](http://laravel.com/docs/4.2/schema#creating-and-dropping-tables) says to use the `Schema::create` method.
+
+    /**
+     * wrapper for the schema create method
+     * to auto prefix tables
+     *
+     * @param   string      Table name to create
+     * @param   function    Anonymouse function containing the schema instructions
+     */
+    public function createTable($table_name, $function)
 
 ### dropTable()
 
+As with createTable above, `dropTable` is a wrapper to simply prepend the database prefix automatically. Again the method declaration is exactly the same so you can use it in the same way as the `Schema::drop` method described [here](http://laravel.com/docs/4.2/schema#creating-and-dropping-tables)
+
+    /**
+     * wrapper for the schema create method
+     * to auto prefix tables
+     *
+     * @param   string      Table name to drop
+     */
+    public function dropTable($table_name)
+
 ### alterTable()
+
+As with the methods above, `alterTable` is a wrapper to prepend the database prefix. The method declaration is exactly the same as `Schema::table` method and is used for modifying the tables structure (to rename see, `renameTable()` below) as described in the [Laravel Documentation](http://laravel.com/docs/4.2/schema#adding-columns)
+
+    /**
+     * wrapper for the schema table method to perform column alterations
+     *
+     * @param   string          Table name
+     * @param   function    Anonymouse function containing the schema instructions
+     */
+    public function alterTable($table_name, $function)
+
+### renameTable()
+
+**THIS METHOD IS TO BE ADDED BETA 4.1**
+
+As above, this method simply a wrapper to prepend the database prefix. This is a wrapper for `Schema::rename()` and shares exactly the same method declaration so can be used in the same way as shown [here](http://laravel.com/docs/4.2/schema#creating-and-dropping-tables).
+
+    /**
+     * wrapper for the schema rename method to rename database tables
+     *
+     * @param   string          Old table name
+     * @param   string          New table name
+     */
+    public function renameTable($old_table, $new_table)
+
 
 ### $date
 
@@ -96,4 +150,4 @@ This variable can be accessed anywhere with the `up` or `down` methods with the 
 
 ### $db_prefix
 
-
+Should it be needed the database prefix that is set within `app/configs/database.php` can be accessed via `$this->db_prefix`. However with the convience wrapper methods mentioned above use of this will likely be limited.
