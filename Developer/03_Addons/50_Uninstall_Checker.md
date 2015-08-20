@@ -1,4 +1,4 @@
-To help prevent unnecessary errors with uninstalling an addon and having other data and addons rely on the first addon, you have the option of creating method within the [Addon Details File] (/Developer/Addons/Details_File) which will be run upon uninstalling an addon.
+To help prevent unnecessary errors with uninstalling an addon and having other data and addons rely on the first addon, you have the option of creating method within the [Addon Details File](/Developer/Addons/Details_File) which will be run upon uninstalling an addon.
 
 This method allows you to check any related data to see if you want to allow the addon to be uninstalled. A simple boolean `true` / `false` result determines whether or not the uninstall can proceed.
 
