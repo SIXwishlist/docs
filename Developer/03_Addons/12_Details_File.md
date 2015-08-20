@@ -1,40 +1,3 @@
-## Naming
-
-All WHSuite specific addons should be placed within the `whsuite/app/addons` folder. All addons should be created in the snake_case format.
-
-* support_desk
-* cpanel
-* knowledge_base
-
-Following this naming convention will mean that the addon root directory will be available at the following namespace automatically: `\Addon\CamelCasedAddonName\`
-
-Folder Name | Namespace Path
-------------| --------------
-support_desk| \Addon\SupportDesk\
-cpanel | \Addon\Cpanel\
-knowledge_base | \Addon\KnowledgeBase\
-
-
-## Folder Structure
-
-As WHSuite is built upon the use of namespaces aside from the reserved folders any folder structure is available as folders / class will be accessible via the namespace.
-
-Below is a list of reserved folders that WHSuite will expect to contain Addon specific classes that it should be aware of (controllers / models / views / migrations etc...)
-
-* assets
-	* css
-	* img
-	* js
-* configs
-* controllers
-* languages
-* libraries (not fully reserved but the main convention)
-* migrations
-* models
-* views
-
-## Details File
-
 A details file is required for each addon, this contains information stored within a class about the Addon that the addon system can read without having to connect to a database or install the addon first.
 
 The file name must be the addon folder name with `_details` appended and saved as a PHP file.
@@ -90,16 +53,16 @@ The final `type` element is used to define the type of addon it is, some options
 The types available are:
 
 * **module**
-	* These are fully fledge addons that provide a full extra section to the website such as a Support Desk, Knowledge Base, Content Management System.
+    * These are fully fledge addons that provide a full extra section to the website such as a Support Desk, Knowledge Base, Content Management System.
 * **plugin**
-	* These are tiny addons that will usually use callbacks on the models or provide code to be called within controller actions to hook into existing work flow. The uploader addon is an example of this.
+    * These are tiny addons that will usually use callbacks on the models or provide code to be called within controller actions to hook into existing work flow. The uploader addon is an example of this.
 * **server**
-	* These are server addons that help provide the account setup when someone purchases a hosting product. Cpanel, Directadmin, Plesk are examples of these.
+    * These are server addons that help provide the account setup when someone purchases a hosting product. Cpanel, Directadmin, Plesk are examples of these.
 * **registrar**
-	* These are the domain addons that provide the domain registration when a domain is purchases through WHSuite, examples of these are enom and logicboxes.
+    * These are the domain addons that provide the domain registration when a domain is purchases through WHSuite, examples of these are enom and logicboxes.
 * **gateway**
-	* These are all the payment gateways that are available for use by the customer. Examples of these include Authorizenet, Paypal and Stripe.
-	* These addons require another element to be defined of `gateway_type`
+    * These are all the payment gateways that are available for use by the customer. Examples of these include Authorizenet, Paypal and Stripe.
+    * These addons require another element to be defined of `gateway_type`
 
 ### Gateway Types
 

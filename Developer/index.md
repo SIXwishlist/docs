@@ -2,7 +2,7 @@ This developer manual will help get you started with developing addons and inter
 
 ### System Overview
 
-WHSuite uses a custom framework based on the MVC design pattern that contains built in framework functionality and then 3rd party composer based packages along with bespoke composer packages built specifically for WHSuite.  
+WHSuite uses a custom framework based on the MVC design pattern that contains built in framework functionality and then 3rd party composer based packages along with bespoke composer packages built specifically for WHSuite.
 The framework also supports addons which themselves are structured around MVC.
 
 ### The Core
@@ -28,7 +28,7 @@ The main 3rd party libraries we use are listed below, each 3rd party library may
 * Cartalyst Sentry ([2.X branch](https://github.com/cartalyst/sentry))
 * Omnipay ([2.X branch](https://github.com/omnipay/omnipay))
 
-Some of these packages are used inside a custom "wrapper" class in order extend default functionality allowing us to maximise the use for these packages.  
+Some of these packages are used inside a custom "wrapper" class in order extend default functionality allowing us to maximise the use for these packages.
 This list is correct as of Version 1.0.0 Stable, this list may be subject to change during continued development.
 
 The following is a list of some of the main custom packages WHSuite uses.
