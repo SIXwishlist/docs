@@ -26,7 +26,6 @@ The main 3rd party libraries we use are listed below, each 3rd party library may
 * Symfony Finder ([2.3.X branch](https://github.com/symfony/Finder))
 * Symfony Translation ([2.4.X branch](https://github.com/symfony/Translation))
 * Cartalyst Sentry ([2.X branch](https://github.com/cartalyst/sentry))
-* Omnipay ([2.X branch](https://github.com/omnipay/omnipay))
 
 Some of these packages are used inside a custom "wrapper" class in order extend default functionality allowing us to maximise the use for these packages.
 This list is correct as of Version 1.0.0 Stable, this list may be subject to change during continued development.
