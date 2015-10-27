@@ -1,0 +1,1 @@
+The following section will contain documentation on how to create certain types of addons that may require special integration with core WHSuite libraries, such as payment gateways or server addons.
