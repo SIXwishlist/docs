@@ -1,0 +1,1 @@
+Use the menu to the left to navigate to the guides for creating certain types of Gateway addons.
