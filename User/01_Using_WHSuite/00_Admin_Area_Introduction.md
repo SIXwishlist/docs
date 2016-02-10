@@ -35,10 +35,8 @@ The top bar shows the current page name on the left side. On the right side it s
 
 When you have one or more pending order, an additional icon is shown in the top right displaying the number of pending orders. When this is clicked, a drop-down list of these orders is shown.
 
-In addition to this, when updates for WHSuite are available, a notification icon is shown in the top bar.
-
 ##Multilingual Interface
-The entire WHSuite system uses translation tables to store words and phrases in each supported language. We ship WHSuite with English as the standard language, however as WHSuite continues to expand, additional language packs will be made available via the development community.
+The entire WHSuite system uses translation tables to store words and phrases in each supported language. We ship WHSuite with English as the standard language, however additional language packs are available on our [community translations website](https://translations.whsuite.com)
 
 If you've already added a new language pack into WHSuite, you can set both your user/personal language as well as the system-wide language. This is covered in the system settings section of the documentation.
 
