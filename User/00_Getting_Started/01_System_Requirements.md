@@ -3,7 +3,7 @@ WHSuite is a PHP based system and has a number of requirements to function. Gene
 ### Server Requirements
 * *nix (Unix-like) based environment
 * Apache web server
-* PHP 5.3.7 or above
+* PHP 5.4 or above (5.6 recommended)
 * MySQL 5.x
 
 ####PHP Requirements

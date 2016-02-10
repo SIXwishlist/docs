@@ -44,10 +44,8 @@ Near the top of this file you'll find this line:
 	
 You can modify the '/admin' part to your own directory name. We recommend something unique that people wont guess. This should not contain any trailing slashes or additional directories, and must start with a forward slash.
 
-##3. Reduce Admin Privileges
-WHSuite includes the ability to give staff individual permission levels. We recommend you only give staff the permissions they will need on a regular basis. You can change the assigned permissions per-user by accessing their staff details page from the WHSuite admin area.
 
-##4. Enable System Passphrases
+##3. Enable System Passphrases
 WHSuite makes use of AES and RSA encryption methods for some areas of it's database. The system areas that are encrypted using RSA allow for a system passphrase to be used. 
 
 Using a passphrase means that once the data is stored, it's impossible to retrieve it without the passphrase being provided. At no point is the passphrase stored on the server, making it a highly secure data storage method.
@@ -58,7 +56,11 @@ If you choose to use passphrases for your encryption (highly recommended), you c
 
 **Passphrases are not stored anywhere and can never be retrieved if lost. Be sure to use something memorable. Loosing your passphrase will result in data loss.**
 
-##5. Forcing SSL redirection
+##4. Forcing SSL redirection
 We highly recommend running WHSuite with SSL. If you are doing so, you can modify your htaccess file to forcefull redirect users to the HTTPS address.
 
->**TODO:** UPDATE THIS WITH THE CODE BLOCK ONCE THE SSL REDIRECT EXISTS IN OUR DFAULT HTACCESS FILE.
+An example of how to do this in your htaccess file would be:
+
+    RewriteEngine On 
+    RewriteCond %{SERVER_PORT} 80 
+    RewriteRule ^(.*)$ https://yourhostingsite.com/$1 [R,L] 
